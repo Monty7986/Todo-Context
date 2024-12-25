@@ -3,7 +3,7 @@ import { useTodo } from "../Contexts";
 
 function TodoForm() {
   // todo is a todo message
-  const [todo, setTodo] = useState("")
+  const [input, setInput] = useState("")
   const {addTodo} = useTodo();
 
   const todoAdd = (e) => {
@@ -11,8 +11,8 @@ function TodoForm() {
 
     if(!todo) return 
   // id is already given otherwise can be added from here
-    addTodo({ todo: todo ,completed: false })
-    setTodo("")
+    addTodo({ todo: input ,completed: false })
+    setInput("")
   }
 
   return (
@@ -21,8 +21,8 @@ function TodoForm() {
         type="text"
         placeholder="Write Todo..."
         className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
 
       />
       <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
